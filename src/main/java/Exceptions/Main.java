@@ -1,5 +1,6 @@
 package Exceptions;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -8,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         PersonList personList = new PersonList();
         List<Person> validPersons = new ArrayList<>();
+        String filePath = "persons.txt";
 
         // Define test cases (some valid, some invalid)
         Object[][] testData = {
@@ -68,10 +70,15 @@ public class Main {
 
         System.out.println("\n📝 Saving valid persons to file...\n");
 
-        for (Person p : validPersons) {
-            personList.writePersonToFile(p, "persons.txt");
+        for (Person validPerson : validPersons) {
+            try {
+                personList.writePersonToFile(validPerson, filePath);
+                System.out.println("✅ Person written to file.");
+            } catch (IllegalArgumentException | IOException e) {
+                System.err.println("❌ Error writing person to file: " + e.getMessage());
+            }
         }
 
-        System.out.println("✅ All valid persons saved to 'persons.txt'.");
+        System.out.println("✅ All valid persons saved to '" + filePath + "'.");
     }
 }

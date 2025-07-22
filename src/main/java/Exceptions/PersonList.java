@@ -32,14 +32,21 @@ public class PersonList {
         return new Person(++idCounter, original.getName(), original.getAge(), original.getOccupation());
     }
 
-    public void writePersonToFile(Person person, String filePath) {
+    public void writePersonToFile(Person person, String filePath) throws IOException {
+        if (person == null) {
+            throw new IllegalArgumentException("Person cannot be null.");
+        }
+
+        if (filePath == null || filePath.trim().isEmpty()) {
+            throw new IllegalArgumentException("File path cannot be null or empty.");
+        }
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             writer.write(person.toString());
             writer.newLine();
-        } catch (IOException e) {
-            System.err.println("Error writing to file: " + e.getMessage());
         }
     }
+
 
     public List<Person> getPeople() {
         return people;

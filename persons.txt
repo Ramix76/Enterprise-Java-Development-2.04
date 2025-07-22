@@ -2,3 +2,7 @@ Person{id=1, age=30, name='John Smith', occupation='Teacher'}
 Person{id=2, age=25, name='Jane Doe', occupation='Engineer'}
 Person{id=5, age=50, name='Bob Marley', occupation='Musician'}
 Person{id=7, age=0, name='Mary Lee', occupation='Artist'}
+Person{id=1, age=30, name='John Smith', occupation='Teacher'}
+Person{id=2, age=25, name='Jane Doe', occupation='Engineer'}
+Person{id=5, age=50, name='Bob Marley', occupation='Musician'}
+Person{id=7, age=0, name='Mary Lee', occupation='Artist'}
